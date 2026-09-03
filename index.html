@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minas Aslanyan — Human Motion, Perception & Interactive Systems</title>
+<meta name="description" content="Minas Aslanyan — Ph.D. researcher in computer science working on human motion modelling, learning-based perception, and real-time interactive systems. Seeking postdoctoral positions.">
+<meta name="author" content="Minas Aslanyan">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Minas Aslanyan — Researcher, Human Motion & Perception">
+<meta property="og:description" content="Human motion modelling, learning-based perception, and real-time interactive systems. Seeking postdoctoral positions.">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231f3864'/><text y='.9em' x='50' font-size='58' text-anchor='middle' fill='white' font-family='Georgia,serif'>M</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Minas Aslanyan",
+  "jobTitle": "Doctoral Researcher in Computer Science",
+  "email": "mailto:minas.aslanyan@iiap.sci.am",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Institute for Informatics and Automation Problems, National Academy of Sciences of Armenia"
+  },
+  "address": { "@type": "PostalAddress", "addressLocality": "Yerevan", "addressCountry": "AM" },
+  "knowsAbout": ["Human pose estimation","Human motion analysis","Sensor fusion","Machine learning","Human-robot interaction","Computer vision"],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=Q3JyARwAAAAJ",
+    "https://www.linkedin.com/in/maslanyan/"
+  ]
+}
+</script>
+
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --bg:#fbfaf8;
+  --surface:#ffffff;
+  --surface-2:#f4f2ee;
+  --text:#1a1c20;
+  --text-soft:#4d525c;
+  --text-mute:#767c88;
+  --accent:#1f3864;
+  --accent-soft:#e8edf6;
+  --line:#e3e0da;
+  --line-strong:#d2cec6;
+  --shadow:0 1px 2px rgba(26,28,32,.05), 0 8px 24px -12px rgba(26,28,32,.14);
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --maxw:940px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101216;
+    --surface:#171a20;
+    --surface-2:#1d2128;
+    --text:#e9eaec;
+    --text-soft:#b3b8c1;
+    --text-mute:#868d99;
+    --accent:#9db8e8;
+    --accent-soft:#1b2436;
+    --line:#282d36;
+    --line-strong:#39404b;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101216; --surface:#171a20; --surface-2:#1d2128;
+  --text:#e9eaec; --text-soft:#b3b8c1; --text-mute:#868d99;
+  --accent:#9db8e8; --accent-soft:#1b2436;
+  --line:#282d36; --line-strong:#39404b;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--accent)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(180%) blur(12px);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;gap:20px;height:58px;
+}
+.nav-brand{
+  font-family:var(--serif);font-weight:600;font-size:16.5px;
+  color:var(--text);text-decoration:none;white-space:nowrap;letter-spacing:-.01em;
+}
+.nav-links{
+  display:flex;gap:4px;margin-left:auto;
+  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  font-size:13.5px;color:var(--text-soft);text-decoration:none;
+  padding:6px 10px;border-radius:6px;white-space:nowrap;font-weight:500;
+}
+.nav-links a:hover{background:var(--surface-2);color:var(--text)}
+.nav-links a.active{color:var(--accent);background:var(--accent-soft)}
+
+/* ---------- hero ---------- */
+.hero{padding:56px 0 44px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1fr 200px;gap:40px;align-items:start}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12.5px;font-weight:500;letter-spacing:.01em;
+  color:var(--accent);background:var(--accent-soft);
+  border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);
+  padding:5px 12px;border-radius:100px;margin-bottom:18px;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+h1{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(2.15rem,5.5vw,3.05rem);line-height:1.08;
+  letter-spacing:-.022em;margin:0 0 12px;
+}
+.role{font-size:16.5px;color:var(--text-soft);margin:0 0 4px;font-weight:500}
+.affil{font-size:15px;color:var(--text-mute);margin:0 0 22px}
+.lede{
+  font-family:var(--serif);font-size:18.5px;line-height:1.62;
+  color:var(--text-soft);margin:0 0 24px;max-width:60ch;
+}
+.lede strong{color:var(--text);font-weight:600}
+
+.links{display:flex;flex-wrap:wrap;gap:9px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:14px;font-weight:500;text-decoration:none;
+  padding:8px 15px;border-radius:8px;
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--text);
+  transition:border-color .15s,transform .15s;
+}
+.btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn-primary,
+:root:not([data-theme="light"]) .btn-primary{color:#101216}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn-primary{color:#fff}}
+.btn-primary:hover{opacity:.9;border-color:var(--accent)}
+.btn svg{width:15px;height:15px;flex:none}
+
+.portrait{
+  width:200px;height:200px;border-radius:14px;object-fit:cover;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.monogram{
+  width:200px;height:200px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#000));
+  color:#fff;font-family:var(--serif);font-size:70px;font-weight:500;letter-spacing:.02em;
+  box-shadow:var(--shadow);
+}
+
+/* ---------- sections ---------- */
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{
+  font-family:var(--serif);font-size:13px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--accent);
+  margin:0 0 22px;padding-bottom:9px;border-bottom:1px solid var(--line);
+}
+h3{font-size:16px;font-weight:600;margin:0 0 4px;letter-spacing:-.005em}
+p{margin:0 0 14px}
+p:last-child{margin-bottom:0}
+
+/* interests */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.chip{
+  font-size:13px;color:var(--text-soft);background:var(--surface-2);
+  border:1px solid var(--line);padding:4px 11px;border-radius:100px;
+}
+
+/* research cards */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:20px 21px;box-shadow:var(--shadow);
+  transition:border-color .15s,transform .15s;
+}
+.card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+.card-num{
+  font-family:var(--serif);font-size:12px;color:var(--accent);
+  font-weight:600;letter-spacing:.08em;margin-bottom:8px;
+}
+.card p{font-size:14.5px;color:var(--text-soft);line-height:1.6;margin:8px 0 0}
+.card-tag{
+  display:inline-block;margin-top:13px;font-size:12px;color:var(--text-mute);
+  border-top:1px solid var(--line);padding-top:10px;width:100%;
+}
+
+/* publications */
+.pub-group{margin-bottom:28px}
+.pub-group:last-child{margin-bottom:0}
+.pub-label{
+  font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--text-mute);margin-bottom:12px;
+}
+ol.pubs{list-style:none;counter-reset:pub;margin:0;padding:0}
+ol.pubs li{
+  counter-increment:pub;position:relative;
+  padding:0 0 16px 34px;margin-bottom:16px;border-bottom:1px solid var(--line);
+}
+ol.pubs li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+ol.pubs li::before{
+  content:"[" counter(pub) "]";position:absolute;left:0;top:1px;
+  font-family:var(--serif);font-size:13.5px;color:var(--text-mute);font-variant-numeric:tabular-nums;
+}
+.pub-title{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.35;margin:0 0 5px;letter-spacing:-.005em}
+.pub-meta{font-size:14px;color:var(--text-soft);margin:0 0 8px}
+.pub-meta em{font-style:italic}
+.pub-links{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.tag{
+  font-size:11.5px;font-weight:500;letter-spacing:.03em;
+  padding:2.5px 9px;border-radius:5px;
+  background:var(--surface-2);color:var(--text-mute);border:1px solid var(--line);
+}
+.tag-scopus{background:var(--accent-soft);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 22%,transparent)}
+.doi{font-size:12.5px;text-decoration:none;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);padding:2.5px 9px;border-radius:5px}
+.doi:hover{background:var(--accent-soft)}
+
+/* timeline entries */
+.entry{
+  display:grid;grid-template-columns:1fr 128px;gap:20px;
+  padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--line);
+}
+.entry:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.entry-org{font-size:14.5px;color:var(--text-soft);font-style:italic;margin:0 0 9px}
+.entry-date{
+  font-size:13px;color:var(--text-mute);text-align:right;
+  font-variant-numeric:tabular-nums;padding-top:2px;white-space:nowrap;
+}
+.entry ul{margin:0;padding-left:17px}
+.entry li{font-size:14.5px;color:var(--text-soft);line-height:1.6;margin-bottom:5px}
+.entry li::marker{color:var(--text-mute)}
+
+/* skills */
+.skills{display:grid;gap:0}
+.skill-row{
+  display:grid;grid-template-columns:190px 1fr;gap:20px;
+  padding:12px 0;border-bottom:1px solid var(--line);
+}
+.skill-row:last-child{border-bottom:0}
+.skill-key{font-size:14px;font-weight:600;color:var(--text)}
+.skill-val{font-size:14.5px;color:var(--text-soft);line-height:1.6}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.contact-item{margin-bottom:14px}
+.contact-item:last-child{margin-bottom:0}
+.contact-key{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--text-mute);margin-bottom:2px}
+.contact-val{font-size:15px}
+.ref-card{
+  background:var(--surface-2);border:1px solid var(--line);
+  border-radius:10px;padding:17px 19px;
+}
+.ref-card p{font-size:14px;color:var(--text-soft);margin:0 0 4px}
+.ref-card strong{color:var(--text)}
+
+footer{
+  padding:28px 0 40px;font-size:13px;color:var(--text-mute);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  border-top:1px solid var(--line);
+}
+footer a{color:var(--text-mute)}
+
+/* theme toggle */
+.theme-btn{
+  background:none;border:1px solid var(--line-strong);border-radius:7px;
+  width:32px;height:32px;display:grid;place-items:center;cursor:pointer;
+  color:var(--text-soft);flex:none;padding:0;
+}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+.theme-btn svg{width:15px;height:15px}
+
+/* ---------- responsive ---------- */
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .portrait,.monogram{width:132px;height:132px;font-size:46px}
+  .cards{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .entry{grid-template-columns:1fr;gap:6px}
+  .entry-date{text-align:left;order:-1;font-weight:500}
+  .skill-row{grid-template-columns:1fr;gap:2px}
+  .nav-brand{display:none}
+  .nav-links{margin-left:0}
+  .hero{padding:38px 0 34px}
+  section{padding:38px 0}
+}
+
+/* ---------- print ---------- */
+@media print{
+  .nav,.theme-btn,footer{display:none}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  section{padding:14pt 0;break-inside:avoid}
+  .card,.entry,ol.pubs li{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+  .cards{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">Minas Aslanyan</a>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle colour theme" title="Toggle colour theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge"><span class="dot"></span>Seeking postdoctoral positions<!-- add availability here, e.g. &middot; available from March 2027 --></span>
+        <h1>Minas Aslanyan</h1>
+        <p class="role">Doctoral Researcher in Computer Science</p>
+        <p class="affil">Institute for Informatics and Automation Problems (IIAP), National Academy of Sciences of Armenia &middot; Yerevan</p>
+
+        <p class="lede">
+          I work at the intersection of <strong>human motion modelling</strong>,
+          <strong>learning-based perception</strong>, and <strong>real-time interactive systems</strong> —
+          building closed-loop environments that estimate human movement from vision and inertial
+          sensing, quantify deviation from a reference motion, and return corrective feedback in
+          real time.
+        </p>
+
+        <div class="links">
+          <a class="btn btn-primary" href="assets/docs/Minas_Aslanyan_CV.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Curriculum Vitae
+          </a>
+          <a class="btn" href="mailto:minas.aslanyan@iiap.sci.am">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            Email
+          </a>
+          <a class="btn" href="https://scholar.google.com/citations?user=Q3JyARwAAAAJ" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+            Google Scholar
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/maslanyan/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Portrait: save your headshot to assets/img/portrait.jpg.
+           Until that file exists, the monogram below is shown instead. -->
+      <img class="portrait" src="assets/img/portrait.jpg" alt="Minas Aslanyan"
+           onerror="this.outerHTML='&lt;div class=&quot;monogram&quot; aria-hidden=&quot;true&quot;&gt;MA&lt;/div&gt;'">
+    </div>
+  </header>
+
+  <!-- ================= RESEARCH ================= -->
+  <section id="research">
+    <div class="wrap">
+      <h2>Research</h2>
+      <p style="max-width:68ch;color:var(--text-soft)">
+        My doctoral work forms a perception-to-feedback control loop with a human in the loop:
+        sensing movement, scoring it against a reference, and acting on the result while the person
+        is still moving. I am extending this toward <strong style="color:var(--text)">human-centred,
+        data-driven control for physical human&ndash;robot interaction</strong> — models of human
+        motor behaviour that a controller can rely on for assistance, rehabilitation, and
+        shared-autonomy tasks.
+      </p>
+
+      <div class="chips">
+        <span class="chip">Human-centred control</span>
+        <span class="chip">Human&ndash;robot interaction</span>
+        <span class="chip">Data-driven modelling of human motion</span>
+        <span class="chip">State estimation &amp; sensor fusion</span>
+        <span class="chip">Machine learning for perception</span>
+        <span class="chip">Haptic &amp; visual assistance</span>
+        <span class="chip">Rehabilitation &amp; motor-learning technology</span>
+      </div>
+
+      <div class="cards" style="margin-top:26px">
+        <article class="card">
+          <div class="card-num">01</div>
+          <h3>Mobile 3D Human Pose Estimation</h3>
+          <p>A real-time 3D pose estimation pipeline optimised for commodity mobile hardware,
+            sustaining 30&nbsp;FPS on mid-range devices under strict on-device compute and latency
+            budgets — and validated in the wild, not only in the lab.</p>
+          <span class="card-tag">Pattern Recognition and Image Analysis, 2024 &middot; CSIT 2023</span>
+        </article>
+
+        <article class="card">
+          <div class="card-num">02</div>
+          <h3>Inertial vs. Vision-Based Motion Capture</h3>
+          <p>A systematic comparative evaluation of IMU and vision-based capture, characterising the
+            accuracy, drift, and failure modes of each modality — and identifying the conditions
+            under which fusing them is actually justified.</p>
+          <span class="card-tag">Pattern Recognition and Image Analysis, 2025</span>
+        </article>
+
+        <article class="card">
+          <div class="card-num">03</div>
+          <h3>Skeleton-Based Gait Recognition</h3>
+          <p>Occlusion-aware, part-level supervised contrastive learning for skeleton-based gait
+            recognition, improving the robustness of learned motion representations when the body is
+            only partially visible.</p>
+          <span class="card-tag">Manuscript in preparation</span>
+        </article>
+
+        <article class="card">
+          <div class="card-num">04</div>
+          <h3>VR Training &amp; Corrective Feedback</h3>
+          <p>An intelligent VR workout environment pairing a head-mounted display with an external
+            smartphone as the sensing channel, with a guidance layer that turns pose-derived
+            kinematic error into adaptive corrective instruction.</p>
+          <span class="card-tag">IEEE EDUCON 2024</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PUBLICATIONS ================= -->
+  <section id="publications">
+    <div class="wrap">
+      <h2>Publications</h2>
+      <p style="font-size:14.5px;color:var(--text-mute);margin-bottom:24px">
+        Peer-reviewed; sole or first author on all items.
+        Full list on <a href="https://scholar.google.com/citations?user=Q3JyARwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+      </p>
+
+      <div class="pub-group">
+        <div class="pub-label">Journal Articles</div>
+        <ol class="pubs">
+          <li>
+            <p class="pub-title">Comparative Evaluation of Inertial Measurement Unit versus Vision-Based Motion Capture</p>
+            <p class="pub-meta">M. Aslanyan &middot; <em>Pattern Recognition and Image Analysis</em>, vol.&nbsp;35, no.&nbsp;4, 2025</p>
+            <div class="pub-links">
+              <span class="tag tag-scopus">Scopus</span>
+              <a class="doi" href="https://doi.org/10.1134/S1054661825700762" target="_blank" rel="noopener">doi.org/10.1134/S1054661825700762</a>
+            </div>
+          </li>
+          <li>
+            <p class="pub-title">On Mobile Pose Estimation and Action Recognition: Design and Implementation</p>
+            <p class="pub-meta">M. Aslanyan &middot; <em>Pattern Recognition and Image Analysis</em>, vol.&nbsp;34, no.&nbsp;1, pp.&nbsp;126&ndash;136, 2024</p>
+            <div class="pub-links">
+              <span class="tag tag-scopus">Scopus</span>
+              <a class="doi" href="https://doi.org/10.1134/S1054661824010036" target="_blank" rel="noopener">doi.org/10.1134/S1054661824010036</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pub-group">
+        <div class="pub-label">Conference Papers</div>
+        <ol class="pubs" start="3" style="counter-reset:pub 2">
+          <li>
+            <p class="pub-title">Development of Intelligent Workout Environment for VR Devices</p>
+            <p class="pub-meta">M. Aslanyan &middot; <em>2024 IEEE Global Engineering Education Conference (EDUCON)</em>, Kos Island, Greece, pp.&nbsp;1&ndash;5, April 2024</p>
+            <div class="pub-links">
+              <span class="tag tag-scopus">Scopus</span>
+              <a class="doi" href="https://doi.org/10.1109/EDUCON60312.2024.10578849" target="_blank" rel="noopener">doi.org/10.1109/EDUCON60312.2024.10578849</a>
+              <a class="doi" href="https://ieeexplore.ieee.org/document/10578849" target="_blank" rel="noopener">IEEE Xplore</a>
+            </div>
+          </li>
+          <li>
+            <p class="pub-title">On Mobile Pose Estimation Design and Implementation</p>
+            <p class="pub-meta">M. Aslanyan &middot; <em>Computer Science and Information Technologies (CSIT)</em>, Yerevan, Armenia, 2023</p>
+            <div class="pub-links">
+              <a class="doi" href="https://doi.org/10.51408/csit2023_26" target="_blank" rel="noopener">doi.org/10.51408/csit2023_26</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pub-group">
+        <div class="pub-label">In Preparation</div>
+        <ol class="pubs" start="5" style="counter-reset:pub 4">
+          <li>
+            <p class="pub-title">Occlusion-Aware Part-Level Supervised Contrastive Learning for Skeleton-Based Gait Recognition</p>
+            <p class="pub-meta">M. Aslanyan and L. Aslanyan</p>
+            <div class="pub-links"><span class="tag">Manuscript in preparation</span></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience">
+    <div class="wrap">
+      <h2>Research Experience</h2>
+
+      <div class="entry">
+        <div>
+          <h3>Researcher / Doctoral Researcher</h3>
+          <p class="entry-org">Institute for Informatics and Automation Problems, NAS RA &middot; Yerevan, Armenia</p>
+          <ul>
+            <li>Designed and validated a real-time 3D human pose estimation pipeline for commodity mobile hardware, sustaining 30&nbsp;FPS on mid-range devices.</li>
+            <li>Conducted a systematic comparative evaluation of inertial versus vision-based motion capture, characterising accuracy, drift, and failure modes of each modality.</li>
+            <li>Developed occlusion-aware, part-level supervised contrastive learning for skeleton-based gait recognition.</li>
+            <li>Built an intelligent VR workout environment coupling an HMD with an external smartphone as the sensing channel, closing a perception&ndash;feedback loop across two devices under tight latency budgets.</li>
+            <li>Engineered a guidance layer translating pose-derived kinematic error signals into adaptive, context-aware corrective instructions.</li>
+            <li>Full experimental ownership: study design, participant instruction, motion-data collection, signal processing, statistical analysis, and validation against reference measurements.</li>
+          </ul>
+        </div>
+        <div class="entry-date">2020 &ndash; present</div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <h3>Founder &amp; Technical Lead — <em>Jamie: AI Fitness Coach</em></h3>
+          <p class="entry-org">Applied research project &middot; independently funded prototype deployed at scale</p>
+          <ul>
+            <li>Deployed the research pipeline as a public application (25,000+ downloads, 4.7-star rating), yielding a large-scale, in-the-wild evaluation of mobile pose estimation and feedback quality outside laboratory conditions.</li>
+            <li>Implemented real-time on-device computer vision (pose estimation, repetition counting) and 3D virtual-trainer agents in Unity/C#, integrated with a Node.js and Python backend.</li>
+          </ul>
+        </div>
+        <div class="entry-date">2023 &ndash; 2024</div>
+      </div>
+
+      <h2 style="margin-top:40px">Professional Engineering Experience</h2>
+      <p style="font-size:14px;color:var(--text-mute);margin-bottom:20px">
+        Included for completeness — large-scale software engineering, team leadership, and delivery of production research systems.
+      </p>
+
+      <div class="entry">
+        <div>
+          <h3>Principal Engineer — SaaS Platform &amp; AI Systems</h3>
+          <p class="entry-org">Inferaim</p>
+          <ul>
+            <li>Owned the architecture of a multi-tenant, event-driven microservice platform on AWS; designed and shipped an LLM-based natural-language-to-SQL engine (retrieval over schema embeddings with an agentic validation loop) reaching 92% accuracy on 10,000+ daily queries.</li>
+            <li>Hired, mentored, and led a team of five engineers; established design-review, code-review, and CI/CD standards.</li>
+          </ul>
+        </div>
+        <div class="entry-date">2024 &ndash; 2026</div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <h3>Software Engineer I&ndash;III</h3>
+          <p class="entry-org">VMware Inc.</p>
+          <ul>
+            <li>Built core visualisation and analytics components of VMware Aria Operations, a large-scale enterprise observability platform (Java, React, D3.js, REST APIs).</li>
+            <li>Led a cross-team modernisation of the shared visualisation stack, removing $3M in company-wide third-party licensing costs; mentored junior engineers and ran internal technical talks.</li>
+          </ul>
+        </div>
+        <div class="entry-date">2014 &ndash; 2020</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TEACHING ================= -->
+  <section id="teaching">
+    <div class="wrap">
+      <h2>Teaching</h2>
+
+      <div class="entry">
+        <div>
+          <h3>Adjunct Lecturer</h3>
+          <p class="entry-org">Université française en Arménie (French University in Armenia, UFAR) &middot; Yerevan</p>
+          <ul>
+            <li>Lectured Python programming, data structures, and algorithms; designed and graded coursework and supervised undergraduate students through hands-on programming exercises.</li>
+          </ul>
+        </div>
+        <div class="entry-date">2022 &ndash; 2024</div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <h3>Teaching Assistant — Cloud Computing</h3>
+          <p class="entry-org">American University of Armenia (AUA) &middot; Yerevan</p>
+          <ul>
+            <li>Supported lecture delivery, graded assignments, and held weekly office hours.</li>
+          </ul>
+        </div>
+        <div class="entry-date">2023 &ndash; 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+
+      <div class="entry">
+        <div>
+          <h3>Ph.D. in Computer Science</h3>
+          <p class="entry-org">Institute for Informatics and Automation Problems (IIAP), NAS RA &middot; Yerevan</p>
+          <ul>
+            <li>Dissertation: <em>AI-Driven Environment for Automated Physical and Biomechanical Analysis</em>.</li>
+            <li>Advisor: Dr. Levon Aslanyan, Doctor of Physical and Mathematical Sciences; Head of the Discrete Mathematics Department.</li>
+            <li>Topics: real-time 3D human pose reconstruction on mobile hardware, biomechanical error quantification, corrective-feedback generation, and integration with VR training environments.</li>
+          </ul>
+        </div>
+        <div class="entry-date">2020 &ndash; 2026</div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <h3>M.Sc. in Digital Signal Processing</h3>
+          <p class="entry-org">Institute for Informatics and Automation Problems (IIAP), NAS RA &middot; Yerevan</p>
+          <ul>
+            <li>Thesis: <em>Creation of an Algorithmic Application for Signal Analysis and Evaluation</em>.</li>
+          </ul>
+        </div>
+        <div class="entry-date">2015 &ndash; 2017</div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <h3>B.Sc. in Electrical and Electronics Engineering</h3>
+          <p class="entry-org">State Engineering University of Armenia (National Polytechnic University of Armenia) &middot; Yerevan</p>
+        </div>
+        <div class="entry-date">2009 &ndash; 2013</div>
+      </div>
+
+      <h2 style="margin-top:40px">Awards &amp; Recognition</h2>
+      <ul style="padding-left:18px;margin:0">
+        <li style="font-size:14.5px;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--text)">“Top 100 Global Key Talent,” VMware Inc.</strong> — selected from a worldwide engineering organisation, with an accompanying equity award.</li>
+        <li style="font-size:14.5px;color:var(--text-soft)">Four projects selected and pitched in VMware Innovation Sprint programmes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <div class="wrap">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <div class="skill-row"><div class="skill-key">Programming</div><div class="skill-val">Python, MATLAB, C#, Java, C, TypeScript/JavaScript, SQL, Dart</div></div>
+        <div class="skill-row"><div class="skill-key">ML &amp; Modelling</div><div class="skill-val">PyTorch, deep learning for vision, contrastive representation learning, OpenCV, time-series modelling, LLM orchestration (LangChain), RAG</div></div>
+        <div class="skill-row"><div class="skill-key">Signals &amp; Estimation</div><div class="skill-val">Digital signal processing, filtering, IMU/vision sensor fusion, motion capture pipelines, real-time low-latency systems</div></div>
+        <div class="skill-row"><div class="skill-key">Simulation &amp; HRI</div><div class="skill-val">Unity (3D interactive and VR environments, C#), on-device inference, mobile sensing</div></div>
+        <div class="skill-row"><div class="skill-key">Tooling</div><div class="skill-val">Docker, Git, CI/CD, FastAPI, Node.js, AWS, GCP, PostgreSQL, Linux</div></div>
+        <div class="skill-row"><div class="skill-key">Languages</div><div class="skill-val">Armenian (native), English (fluent, C1), Russian (fluent), German (A1 — actively studying)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-item">
+            <div class="contact-key">Email</div>
+            <div class="contact-val"><a href="mailto:minas.aslanyan@iiap.sci.am">minas.aslanyan@iiap.sci.am</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-key">Location</div>
+            <div class="contact-val">Yerevan, Armenia</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-key">Profiles</div>
+            <div class="contact-val">
+              <a href="https://scholar.google.com/citations?user=Q3JyARwAAAAJ" target="_blank" rel="noopener">Google Scholar</a> &middot;
+              <a href="https://www.linkedin.com/in/maslanyan/" target="_blank" rel="noopener">LinkedIn</a> &middot;
+              <a href="assets/docs/Minas_Aslanyan_CV.pdf">CV (PDF)</a>
+            </div>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="contact-key" style="margin-bottom:8px">Reference</div>
+          <p><strong>Dr. Levon Aslanyan</strong> — Doctoral advisor</p>
+          <p>Doctor of Physical and Mathematical Sciences; Head, Discrete Mathematics Department</p>
+          <p>Institute for Informatics and Automation Problems, NAS RA<br>1 Paruyr Sevak St., Yerevan 0014, Armenia</p>
+          <p style="margin-top:10px;font-style:italic">Contact details, further references, and full transcripts available on request.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <span>&copy; <span id="yr">2026</span> Minas Aslanyan</span>
+      <span>Built as a static page &middot; hosted on GitHub Pages</span>
+    </footer>
+  </div>
+
+</main>
+
+<script>
+// year
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// theme toggle (remembers choice per browser)
+(function(){
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  try{ var saved = localStorage.getItem('theme'); if(saved) root.setAttribute('data-theme', saved); }catch(e){}
+  btn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if(!cur){ cur = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('theme', next); }catch(e){}
+  });
+})();
+
+// active section highlighting
+(function(){
+  var links = [].slice.call(document.querySelectorAll('.nav-links a'));
+  var map = {};
+  links.forEach(function(a){ var el = document.querySelector(a.getAttribute('href')); if(el) map[el.id] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        links.forEach(function(a){ a.classList.remove('active'); });
+        if(map[en.target.id]) map[en.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-58px 0px -70% 0px', threshold: 0 });
+  Object.keys(map).forEach(function(id){ obs.observe(document.getElementById(id)); });
+})();
+</script>
+</body>
+</html>
