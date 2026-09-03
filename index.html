@@ -24,7 +24,7 @@
   "@type": "Person",
   "name": "Minas Aslanyan",
   "jobTitle": "Doctoral Researcher in Computer Science",
-  "email": "mailto:minas.aslanyan@iiap.sci.am",
+  "email": "mailto:minas.aslanyan@gmail.com",
   "affiliation": {
     "@type": "Organization",
     "name": "Institute for Informatics and Automation Problems, National Academy of Sciences of Armenia"
@@ -122,7 +122,7 @@ a:hover{text-decoration-color:var(--accent)}
 
 /* ---------- hero ---------- */
 .hero{padding:56px 0 44px;border-bottom:1px solid var(--line)}
-.hero-grid{display:grid;grid-template-columns:1fr 200px;gap:40px;align-items:start}
+.hero-grid{display:grid;grid-template-columns:1fr 230px;gap:40px;align-items:start}
 .badge{
   display:inline-flex;align-items:center;gap:7px;
   font-size:12.5px;font-weight:500;letter-spacing:.01em;
@@ -161,14 +161,14 @@ h1{
 .btn svg{width:15px;height:15px;flex:none}
 
 .portrait{
-  width:200px;height:200px;border-radius:14px;object-fit:cover;
+  width:230px;height:230px;border-radius:14px;object-fit:cover;
   border:1px solid var(--line);box-shadow:var(--shadow);
 }
 .monogram{
-  width:200px;height:200px;border-radius:14px;
+  width:230px;height:230px;border-radius:14px;
   display:grid;place-items:center;
   background:linear-gradient(150deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#000));
-  color:#fff;font-family:var(--serif);font-size:70px;font-weight:500;letter-spacing:.02em;
+  color:#fff;font-family:var(--serif);font-size:80px;font-weight:500;letter-spacing:.02em;
   box-shadow:var(--shadow);
 }
 
@@ -239,11 +239,28 @@ ol.pubs li::before{
 .doi{font-size:12.5px;text-decoration:none;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);padding:2.5px 9px;border-radius:5px}
 .doi:hover{background:var(--accent-soft)}
 
+/* org logos / letter-marks */
+.org-logo,.org-mark{
+  width:44px;height:44px;border-radius:9px;flex:none;
+  border:1px solid var(--line);background:var(--surface-2);
+}
+.org-logo{object-fit:contain;padding:6px;background:var(--surface)}
+.org-mark{
+  display:grid;place-items:center;
+  font-family:var(--serif);font-weight:600;color:var(--accent);
+  letter-spacing:.02em;line-height:1;user-select:none;
+}
+.org-mark[data-len="1"]{font-size:21px}
+.org-mark[data-len="2"]{font-size:16px}
+.org-mark[data-len="3"]{font-size:13px}
+.org-mark[data-len="4"]{font-size:11px}
+
 /* timeline entries */
 .entry{
   display:grid;grid-template-columns:1fr 128px;gap:20px;
   padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--line);
 }
+.entry--mark{grid-template-columns:44px 1fr 128px;gap:16px}
 .entry:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
 .entry-org{font-size:14.5px;color:var(--text-soft);font-style:italic;margin:0 0 9px}
 .entry-date{
@@ -296,11 +313,12 @@ footer a{color:var(--text-mute)}
 /* ---------- responsive ---------- */
 @media (max-width:760px){
   .hero-grid{grid-template-columns:1fr;gap:24px}
-  .portrait,.monogram{width:132px;height:132px;font-size:46px}
+  .portrait,.monogram{width:150px;height:150px;font-size:52px}
   .cards{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
-  .entry{grid-template-columns:1fr;gap:6px}
+  .entry,.entry--mark{grid-template-columns:1fr;gap:6px}
   .entry-date{text-align:left;order:-1;font-weight:500}
+  .org-logo,.org-mark{order:-2;margin-bottom:2px}
   .skill-row{grid-template-columns:1fr;gap:2px}
   .nav-brand{display:none}
   .nav-links{margin-left:0}
@@ -344,7 +362,6 @@ footer a{color:var(--text-mute)}
   <header class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="badge"><span class="dot"></span>Seeking postdoctoral positions<!-- add availability here, e.g. &middot; available from March 2027 --></span>
         <h1>Minas Aslanyan</h1>
         <p class="role">Doctoral Researcher in Computer Science</p>
         <p class="affil">Institute for Informatics and Automation Problems (IIAP), National Academy of Sciences of Armenia &middot; Yerevan</p>
@@ -362,7 +379,7 @@ footer a{color:var(--text-mute)}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Curriculum Vitae
           </a>
-          <a class="btn" href="mailto:minas.aslanyan@iiap.sci.am">
+          <a class="btn" href="mailto:minas.aslanyan@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
             Email
           </a>
@@ -432,7 +449,7 @@ footer a{color:var(--text-mute)}
           <p>Occlusion-aware, part-level supervised contrastive learning for skeleton-based gait
             recognition, improving the robustness of learned motion representations when the body is
             only partially visible.</p>
-          <span class="card-tag">Manuscript in preparation</span>
+          <span class="card-tag">ICPR 2026 International Workshop &middot; accepted</span>
         </article>
 
         <article class="card">
@@ -501,12 +518,12 @@ footer a{color:var(--text-mute)}
       </div>
 
       <div class="pub-group">
-        <div class="pub-label">In Preparation</div>
+        <div class="pub-label">Accepted &mdash; In Press</div>
         <ol class="pubs" start="5" style="counter-reset:pub 4">
           <li>
             <p class="pub-title">Occlusion-Aware Part-Level Supervised Contrastive Learning for Skeleton-Based Gait Recognition</p>
-            <p class="pub-meta">M. Aslanyan and L. Aslanyan</p>
-            <div class="pub-links"><span class="tag">Manuscript in preparation</span></div>
+            <p class="pub-meta">M. Aslanyan and L. Aslanyan &middot; <em>International Workshop at the 2026 International Conference on Pattern Recognition (ICPR)</em>, 2026</p>
+            <div class="pub-links"><span class="tag tag-scopus">Accepted &mdash; in press</span></div>
           </li>
         </ol>
       </div>
@@ -518,7 +535,9 @@ footer a{color:var(--text-mute)}
     <div class="wrap">
       <h2>Research Experience</h2>
 
-      <div class="entry">
+      <div class="entry entry--mark">
+        <img class="org-logo" src="assets/img/logos/iiap.svg" alt="Institute for Informatics and Automation Problems"
+             onerror="this.outerHTML='&lt;div class=&quot;org-mark&quot; data-len=&quot;4&quot;&gt;IIAP&lt;/div&gt;'">
         <div>
           <h3>Researcher / Doctoral Researcher</h3>
           <p class="entry-org">Institute for Informatics and Automation Problems, NAS RA &middot; Yerevan, Armenia</p>
@@ -534,7 +553,9 @@ footer a{color:var(--text-mute)}
         <div class="entry-date">2020 &ndash; present</div>
       </div>
 
-      <div class="entry">
+      <div class="entry entry--mark">
+        <img class="org-logo" src="assets/img/logos/jamie.svg" alt="Jamie: AI Fitness Coach"
+             onerror="this.outerHTML='&lt;div class=&quot;org-mark&quot; data-len=&quot;1&quot;&gt;J&lt;/div&gt;'">
         <div>
           <h3>Founder &amp; Technical Lead — <em>Jamie: AI Fitness Coach</em></h3>
           <p class="entry-org">Applied research project &middot; independently funded prototype deployed at scale</p>
@@ -551,7 +572,9 @@ footer a{color:var(--text-mute)}
         Included for completeness — large-scale software engineering, team leadership, and delivery of production research systems.
       </p>
 
-      <div class="entry">
+      <div class="entry entry--mark">
+        <img class="org-logo" src="assets/img/logos/inferaim.svg" alt="Inferaim"
+             onerror="this.outerHTML='&lt;div class=&quot;org-mark&quot; data-len=&quot;2&quot;&gt;IN&lt;/div&gt;'">
         <div>
           <h3>Principal Engineer — SaaS Platform &amp; AI Systems</h3>
           <p class="entry-org">Inferaim</p>
@@ -563,10 +586,12 @@ footer a{color:var(--text-mute)}
         <div class="entry-date">2024 &ndash; 2026</div>
       </div>
 
-      <div class="entry">
+      <div class="entry entry--mark">
+        <img class="org-logo" src="assets/img/logos/vmware.svg" alt="VMware by Broadcom"
+             onerror="this.outerHTML='&lt;div class=&quot;org-mark&quot; data-len=&quot;2&quot;&gt;VM&lt;/div&gt;'">
         <div>
           <h3>Software Engineer I&ndash;III</h3>
-          <p class="entry-org">VMware Inc.</p>
+          <p class="entry-org">VMware by Broadcom</p>
           <ul>
             <li>Built core visualisation and analytics components of VMware Aria Operations, a large-scale enterprise observability platform (Java, React, D3.js, REST APIs).</li>
             <li>Led a cross-team modernisation of the shared visualisation stack, removing $3M in company-wide third-party licensing costs; mentored junior engineers and ran internal technical talks.</li>
@@ -582,7 +607,9 @@ footer a{color:var(--text-mute)}
     <div class="wrap">
       <h2>Teaching</h2>
 
-      <div class="entry">
+      <div class="entry entry--mark">
+        <img class="org-logo" src="assets/img/logos/ufar.svg" alt="French University in Armenia"
+             onerror="this.outerHTML='&lt;div class=&quot;org-mark&quot; data-len=&quot;4&quot;&gt;UFAR&lt;/div&gt;'">
         <div>
           <h3>Adjunct Lecturer</h3>
           <p class="entry-org">Université française en Arménie (French University in Armenia, UFAR) &middot; Yerevan</p>
@@ -593,7 +620,9 @@ footer a{color:var(--text-mute)}
         <div class="entry-date">2022 &ndash; 2024</div>
       </div>
 
-      <div class="entry">
+      <div class="entry entry--mark">
+        <img class="org-logo" src="assets/img/logos/aua.svg" alt="American University of Armenia"
+             onerror="this.outerHTML='&lt;div class=&quot;org-mark&quot; data-len=&quot;3&quot;&gt;AUA&lt;/div&gt;'">
         <div>
           <h3>Teaching Assistant — Cloud Computing</h3>
           <p class="entry-org">American University of Armenia (AUA) &middot; Yerevan</p>
@@ -645,7 +674,7 @@ footer a{color:var(--text-mute)}
 
       <h2 style="margin-top:40px">Awards &amp; Recognition</h2>
       <ul style="padding-left:18px;margin:0">
-        <li style="font-size:14.5px;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--text)">“Top 100 Global Key Talent,” VMware Inc.</strong> — selected from a worldwide engineering organisation, with an accompanying equity award.</li>
+        <li style="font-size:14.5px;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--text)">“Top 100 Global Key Talent,” VMware by Broadcom</strong> — selected from a worldwide engineering organisation, with an accompanying equity award.</li>
         <li style="font-size:14.5px;color:var(--text-soft)">Four projects selected and pitched in VMware Innovation Sprint programmes.</li>
       </ul>
     </div>
@@ -674,7 +703,7 @@ footer a{color:var(--text-mute)}
         <div>
           <div class="contact-item">
             <div class="contact-key">Email</div>
-            <div class="contact-val"><a href="mailto:minas.aslanyan@iiap.sci.am">minas.aslanyan@iiap.sci.am</a></div>
+            <div class="contact-val"><a href="mailto:minas.aslanyan@gmail.com">minas.aslanyan@gmail.com</a></div>
           </div>
           <div class="contact-item">
             <div class="contact-key">Location</div>
