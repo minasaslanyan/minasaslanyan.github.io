@@ -139,8 +139,8 @@ h1{
 .role{font-size:16.5px;color:var(--text-soft);margin:0 0 4px;font-weight:500}
 .affil{font-size:15px;color:var(--text-mute);margin:0 0 22px}
 .lede{
-  font-family:var(--serif);font-size:18.5px;line-height:1.62;
-  color:var(--text-soft);margin:0 0 24px;max-width:60ch;
+  font-family:var(--serif);font-size:17.5px;line-height:1.6;
+  color:var(--text-soft);margin:0 0 24px;max-width:64ch;
 }
 .lede strong{color:var(--text);font-weight:600}
 
@@ -362,10 +362,15 @@ footer a{color:var(--text-mute)}
 
         <p class="lede">
           I work at the intersection of <strong>human motion modelling</strong>,
-          <strong>learning-based perception</strong>, and <strong>real-time interactive systems</strong> —
-          building closed-loop environments that estimate human movement from vision and inertial
-          sensing, quantify deviation from a reference motion, and return corrective feedback in
-          real time.
+          <strong>learning-based perception</strong>, and <strong>real-time interactive systems</strong>.
+          My doctoral research builds closed-loop environments that estimate human movement from
+          vision and inertial sensing, quantify deviation from a reference motion, and return
+          corrective feedback in real time — within the compute and latency budgets of consumer
+          mobile hardware rather than offline on a workstation. A second strand develops
+          <strong>occlusion-robust representation learning</strong> for skeleton-based motion, most
+          recently for gait recognition under partial visibility. I am extending both toward
+          <strong>human-centred control for physical human&ndash;robot interaction</strong>, with
+          assistance and rehabilitation as the target applications.
         </p>
 
         <div class="links">
@@ -402,10 +407,12 @@ footer a{color:var(--text-mute)}
       <p style="max-width:68ch;color:var(--text-soft)">
         My doctoral work forms a perception-to-feedback control loop with a human in the loop:
         sensing movement, scoring it against a reference, and acting on the result while the person
-        is still moving. I am extending this toward <strong style="color:var(--text)">human-centred,
-        data-driven control for physical human&ndash;robot interaction</strong> — models of human
-        motor behaviour that a controller can rely on for assistance, rehabilitation, and
-        shared-autonomy tasks.
+        is still moving. The strands below cut across that loop — the <strong style="color:var(--text)">sensing
+        layer</strong> (mobile pose estimation, inertial versus visual capture), the
+        <strong style="color:var(--text)">representation layer</strong> (occlusion-robust motion
+        embeddings), and the <strong style="color:var(--text)">interaction layer</strong> (VR training
+        and corrective feedback). What carries forward to robotics is the middle piece: models of
+        human motor behaviour a controller can actually rely on.
       </p>
 
       <div class="chips">
