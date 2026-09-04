@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minasaslanyan.github.io/sitemap.xml
